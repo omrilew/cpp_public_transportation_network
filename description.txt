@@ -50,7 +50,7 @@ user interactions :
             [output] tram: Prinsengracht Hooigracht . . .
             [output] sprinter: RAI CSoost . . .
             [output] rail: CSnoord Arena Amstel Zuid Zaandam ICwest
-4.uniExpress <source_node> <target_node> - will output the fastest route in minutes(using djikstra algorithm) including station stop time
+4.uniExpress <source_node> <target_node> - will output the fastest route in minutes including station stop time
   from <source_node> to <target_node> without switching vehicle types.
   example- 
           [input] uniExpress CSnoord CSzuid
@@ -58,44 +58,8 @@ user interactions :
           [output] tram: 22
           [output] sprinter: route unavailable
           [output] rail: 7
-5.multiExpress <source_node> <target_node> - will output the fastest route in minutes(using djikstra algorithm) including       station stop or vehicle switch time(if changing vehicle type) from <source_node> to <target_node> 
-  with switching vehicles(if needed).
+5.multiExpress <source_node> <target_node> - will output the fastest route in minutes including station stop or
+  vehicle switch time(if changing vehicle type) from <source_node> to <target_node> with switching vehicles(if needed).
   example-
-            [input] multiExpress CSzuid CSwest
-            [output] 6
-6.print - prints the whole of the network to the default output file "output.dat" or to the given output file.
-  example-
-            From CSzuid -
-            Bus : CSnoord 34, a 34
-            Rail : CSwest 6, CSoost 8
-            From CSwest -
-            Rail : CSzuid 7, CSnoord 14
-            From CSoost -
-            Rail : CSzuid 9, CSnoord 16
-            From CSnoord -
-            Bus : CSzuid 36, b 36
-            Rail : CSwest 15, CSoost 17
-            From a -
-            Bus : CSzuid 34, b 36
-            From b -
-files - 
-  Main.cpp - main program.
-  Exceptions.h - Exceptions file.
-  Graph.cpp\h - the graph definition.
-  Node.cpp\h - the nodes of the graph (each node represents a station).
-  IOClass.cpp\h - class that is in charge of the input output of the program, including validation the given files.
-  Station.cpp\h - parent class of the stations,
-  Stations.cpp\h - the 3 stations classes that derives from Station class.
-  Vehicle.cpp\h - parent class of the vehicles.
-  Vehicles.cpp\h - the 4 vehicles classes that derives from Vehicle class.
-  
-  input files - rail0.dat, bus0.dat, tram0.dat, sprinter0.dat.
-  config file - config.dat
-  
-  Creators - Omri lewkowicz
-             Dvir tzioni
-  
-  
-
           
 
