@@ -1,0 +1,14 @@
+CScentraal	Prinsengracht	4
+Prinsengracht	Hooigracht	3
+Hooigracht	Westzijde	4
+Westzijde	Amstel	3
+Amstel	Leidseplein	5
+Leidseplein	Concertgebouw	4
+Concertgebouw	Herengracht	7
+Herengracht	CScentraal	8
+Herengracht	Concertgebouw	8
+CSzuid	CSnoord	35
+CSnoord	CSzuid	36
+a	Leidseplein	10
+b	CSzuid	2
+Leidseplein	b	3
