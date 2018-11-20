@@ -1,0 +1,65 @@
+this c++ program is about graph manipulations.
+it uses a graph to demonstrate a public transportation network of a city.
+to run the program through bash teminal - 
+  ./<progname> -i <input file>... (optional) -c <config file> -o <outfile>
+<input file> is a file with a name that contains the type of vehicle (bus, tram, sprinter, rail),
+and in the file there are descriptions of routes from station to station and the time to get there.
+<source_node> <TAB> <target_node> <TAB> <duration>
+intercity station will start with IC
+centraal will start with CS
+maximun length of a station name will be 16 letters.
+when given an allready existing course, the time will update with the fastest one.
+when giving incorrect input an exception will be thrown.
+  example - file name - dat.9_t contains Westzijde Prinsengracht 10
+                          
+<config file> - contains new vehicle stop times and station swap time instead of the defaults.
+  example - bus<one space>6
+            intercity<one space>7
+<outfile> - specific output file instead of the stdout.
+
+there are 4 different vehicles available: 
+  a. bus - with default station stop time of 2 minutes.
+  b. tram - with default station stop time of 3 minutes.
+  c. sprinter - with default station stop time of 4 minutes.
+  d. rail - with default station wait stop of 5 minutes.
+and 3 different station types:
+  a.intercity - with default vehicle switch time of 15 minutes.
+  b.stad - with default vehicle switch time of 10 minutes.
+  c.centraal - with default vehicle switch time of 5 minutes.
+
+the default times can be changed as mentioned with a <config file>.
+
+user interactions :
+
+1.load <input file> - with given a correct input file the network will update with the new data.
+2.outbound <source_node> - with given station name, will output all of the stations that are reachable from it.
+  example- 
+            <pubTrans> : no outbound travel - case no routes available.
+            
+            [input] outbound RAI
+            [output] bus: no outbound travel
+            [output] tram: Prinsengracht Hooigracht . . .
+            [output] sprinter: CSzuid . . .
+            [output] rail: CSzuid Arena Amstel Zuid Zaandam . . .
+3.inbound <target_node> - with given station name, will output all of the stations that can reach it.
+  example- 
+            <pubTrans> : no inbound travel
+            
+            [input] inbound CSzuid
+            [output] bus: Westzijde . . .
+            [output] tram: Prinsengracht Hooigracht . . .
+            [output] sprinter: RAI CSoost . . .
+            [output] rail: CSnoord Arena Amstel Zuid Zaandam ICwest
+4.uniExpress <source_node> <target_node> - will output the fastest route in minutes including station stop time
+  from <source_node> to <target_node> without switching vehicle types.
+  example- 
+          [input] uniExpress CSnoord CSzuid
+          [output] bus: 34
+          [output] tram: 22
+          [output] sprinter: route unavailable
+          [output] rail: 7
+5.multiExpress <source_node> <target_node> - will output the fastest route in minutes including station stop or
+  vehicle switch time(if changing vehicle type) from <source_node> to <target_node> with switching vehicles(if needed).
+  example-
+          
+
